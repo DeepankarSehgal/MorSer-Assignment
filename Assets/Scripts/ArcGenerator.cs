@@ -86,4 +86,9 @@ public class ArcGenerator : MonoBehaviour
         //Apply plane orientation to the mesh object
         transform.rotation = Quaternion.LookRotation(normal, yAxis);
     }
+
+    public void ClearArc()
+    {
+        mesh.Clear();
+    }
 }

@@ -46,6 +46,8 @@ public class PivotManager : MonoBehaviour
         if (ToolManager.ActiveTool == ToolType.ChangePivot)
         {
             HandlePivotSelection();
+            HandleDefaultRotation();
+            HandlePan();
         }
 
     }
@@ -54,9 +56,6 @@ public class PivotManager : MonoBehaviour
 
     void HandleDefaultRotation()
     {
-        if (ToolManager.ActiveTool != ToolType.Default)
-            return;
-
         if (!pivotSet) return;
 
         if (Input.GetMouseButtonDown(1))
@@ -87,9 +86,6 @@ public class PivotManager : MonoBehaviour
 
     void HandlePan()
     {
-        if (ToolManager.ActiveTool != ToolType.Default)
-            return;
-
         if (Input.GetMouseButtonDown(2))
             lastMousePos = Input.mousePosition;
 
@@ -184,4 +180,5 @@ public class PivotManager : MonoBehaviour
 
         cam.transform.position += zoomDir * scroll * zoomSpeed * distance * zoomMultiplier;
     }
+
 }
